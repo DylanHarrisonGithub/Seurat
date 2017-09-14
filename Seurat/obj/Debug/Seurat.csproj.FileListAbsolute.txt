@@ -1,0 +1,10 @@
+C:\CS\CSharp\Seurat\Seurat\bin\Debug\Seurat.exe.config
+C:\CS\CSharp\Seurat\Seurat\bin\Debug\Seurat.exe
+C:\CS\CSharp\Seurat\Seurat\bin\Debug\Seurat.pdb
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.csprojResolveAssemblyReference.cache
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.Properties.Resources.resources
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.csproj.GenerateResource.Cache
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.csproj.CoreCompileInputs.cache
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.exe
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.pdb
+C:\CS\CSharp\Seurat\Seurat\obj\Debug\Seurat.Form1.resources

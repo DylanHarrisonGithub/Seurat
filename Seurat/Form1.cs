@@ -15,17 +15,19 @@ namespace Seurat
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
+            
             canvasPlanePanel1.MouseDown += PlanePanel.DefaultMouseDownEventHandler;
             canvasPlanePanel1.MouseUp += PlanePanel.DefaultMouseUpEventHandler;
             canvasPlanePanel1.MouseMove += PlanePanel.DefaultMouseMoveEventHandler;
             //canvasPlanePanel1.MouseClick += PlanePanel.DefaultMouseClickEventHandler;
             canvasPlanePanel1.MouseWheel += PlanePanel.DefaultMouseWheelEventHandler;
-            
+            layerTabPanel1.SetDelegateCanvasPlanePanel(canvasPlanePanel1);
         }
 
     }

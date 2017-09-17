@@ -28,6 +28,7 @@ namespace Seurat
         {
             CreateGUI();
             SetupTrackBars();
+            DoubleBuffered = true;
         }
         protected override void OnCreateControl()
         {

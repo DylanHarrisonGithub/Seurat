@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.workingPanel = new System.Windows.Forms.Panel();
-            this.canvasPlanePanel1 = new Seurat.CanvasPlanePanel();
-            this.layerTabPanel1 = new Seurat.LayerTabPanel();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPageAddLayer = new System.Windows.Forms.TabPage();
             this.infoPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,8 +107,10 @@
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.colorPickerPanel1 = new Seurat.ColorPickerPanel();
+            this.canvasPlanePanel1 = new Seurat.CanvasPlanePanel();
+            this.layerTabPanel1 = new Seurat.LayerTabPanel();
+            this.tabPageAddLayer = new System.Windows.Forms.TabPage();
             this.workingPanel.SuspendLayout();
-            this.layerTabPanel1.SuspendLayout();
             this.infoPanel.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.controlsPanel.SuspendLayout();
@@ -126,6 +124,7 @@
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.layerTabPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // workingPanel
@@ -142,50 +141,6 @@
             this.workingPanel.Name = "workingPanel";
             this.workingPanel.Size = new System.Drawing.Size(384, 414);
             this.workingPanel.TabIndex = 1;
-            // 
-            // canvasPlanePanel1
-            // 
-            this.canvasPlanePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.canvasPlanePanel1.Location = new System.Drawing.Point(3, 22);
-            this.canvasPlanePanel1.Name = "canvasPlanePanel1";
-            this.canvasPlanePanel1.Size = new System.Drawing.Size(376, 358);
-            this.canvasPlanePanel1.TabIndex = 3;
-            // 
-            // layerTabPanel1
-            // 
-            this.layerTabPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.layerTabPanel1.Controls.Add(this.tabPage11);
-            this.layerTabPanel1.Controls.Add(this.tabPageAddLayer);
-            this.layerTabPanel1.Location = new System.Drawing.Point(3, 3);
-            this.layerTabPanel1.MaximumSize = new System.Drawing.Size(9999999, 18);
-            this.layerTabPanel1.MinimumSize = new System.Drawing.Size(0, 18);
-            this.layerTabPanel1.Name = "layerTabPanel1";
-            this.layerTabPanel1.SelectedIndex = 0;
-            this.layerTabPanel1.Size = new System.Drawing.Size(376, 18);
-            this.layerTabPanel1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.layerTabPanel1.TabIndex = 2;
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 22);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(368, 0);
-            this.tabPage11.TabIndex = 2;
-            this.tabPage11.Text = "Layer1";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // tabPageAddLayer
-            // 
-            this.tabPageAddLayer.Location = new System.Drawing.Point(4, 22);
-            this.tabPageAddLayer.Name = "tabPageAddLayer";
-            this.tabPageAddLayer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddLayer.Size = new System.Drawing.Size(368, 0);
-            this.tabPageAddLayer.TabIndex = 1;
-            this.tabPageAddLayer.Text = "+";
-            this.tabPageAddLayer.UseVisualStyleBackColor = true;
             // 
             // infoPanel
             // 
@@ -915,6 +870,40 @@
             this.colorPickerPanel1.Size = new System.Drawing.Size(194, 188);
             this.colorPickerPanel1.TabIndex = 0;
             // 
+            // canvasPlanePanel1
+            // 
+            this.canvasPlanePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.canvasPlanePanel1.Location = new System.Drawing.Point(3, 22);
+            this.canvasPlanePanel1.Name = "canvasPlanePanel1";
+            this.canvasPlanePanel1.Size = new System.Drawing.Size(376, 358);
+            this.canvasPlanePanel1.TabIndex = 3;
+            // 
+            // layerTabPanel1
+            // 
+            this.layerTabPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.layerTabPanel1.Controls.Add(this.tabPageAddLayer);
+            this.layerTabPanel1.Location = new System.Drawing.Point(3, 3);
+            this.layerTabPanel1.MaximumSize = new System.Drawing.Size(9999999, 18);
+            this.layerTabPanel1.MinimumSize = new System.Drawing.Size(0, 18);
+            this.layerTabPanel1.Name = "layerTabPanel1";
+            this.layerTabPanel1.SelectedIndex = 0;
+            this.layerTabPanel1.Size = new System.Drawing.Size(376, 18);
+            this.layerTabPanel1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.layerTabPanel1.TabIndex = 2;
+            // 
+            // tabPageAddLayer
+            // 
+            this.tabPageAddLayer.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAddLayer.Name = "tabPageAddLayer";
+            this.tabPageAddLayer.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAddLayer.Size = new System.Drawing.Size(368, 0);
+            this.tabPageAddLayer.TabIndex = 1;
+            this.tabPageAddLayer.Text = "+";
+            this.tabPageAddLayer.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -927,7 +916,6 @@
             this.Name = "Form1";
             this.Text = "Seurat";
             this.workingPanel.ResumeLayout(false);
-            this.layerTabPanel1.ResumeLayout(false);
             this.infoPanel.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -945,6 +933,7 @@
             this.panel1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.layerTabPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -983,7 +972,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox toolSettingsGroupBox;
-        private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;

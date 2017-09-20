@@ -13,8 +13,8 @@ namespace Seurat
     {
 
         public double[] Center = { 0.0, 0.0 };
-        double Zoom = 1.0;
-        double ZoomInverse = 1.0;
+        public double Zoom = 1.0;
+        public double ZoomInverse = 1.0;
         double[] PanelResolution = { 0.0, 0.0 };
         double[] HalfPanelResolution = { 0.0, 0.0 };
 
@@ -22,11 +22,11 @@ namespace Seurat
         public UInt32 GridColor = 0xffC8C8FF;
         public UInt32 AxesColor = 0xff000000;
 
-        double[] MousePlane = { 0.0, 0.0 };
-        double[] MousePanel = { 0.0, 0.0 };
-        double[] PreviousMouse = { 0.0, 0.0 };
-        bool LBDown = false;
-        bool RBDown = false;
+        public double[] MousePlane = { 0.0, 0.0 };
+        public double[] MousePanel = { 0.0, 0.0 };
+        public double[] PreviousMouse = { 0.0, 0.0 };
+        public bool LBDown = false;
+        public bool RBDown = false;
 
         public PlanePanel()
         {
@@ -228,6 +228,8 @@ namespace Seurat
                 if (e.Button == MouseButtons.Right)
                 {
                     self.RBDown = true;
+                    self.Center = self.PanelToPlaneCoordinates(new double[] { e.X, e.Y });
+                    self.Refresh();
                 }
             });
         public static MouseEventHandler DefaultMouseUpEventHandler = new MouseEventHandler(

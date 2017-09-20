@@ -66,7 +66,10 @@ namespace Seurat
             
             foreach (CanvasLayer l in DelegateCanvasPlanePanel.Layers)
             {
-                TabPages.Add(l.Name);
+                TabPage NewTab = new TabPage();
+                NewTab.Name = l.Name;
+                NewTab.Text = l.Name;
+                TabPages.Add(NewTab);
             }
             TabPage t = new TabPage();
             t.Name = "tabPageAddLayer";

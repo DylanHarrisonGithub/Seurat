@@ -14,21 +14,29 @@ namespace Seurat
     {
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            
-            canvasPlanePanel1.MouseDown += PlanePanel.DefaultMouseDownEventHandler;
-            canvasPlanePanel1.MouseUp += PlanePanel.DefaultMouseUpEventHandler;
-            canvasPlanePanel1.MouseMove += PlanePanel.DefaultMouseMoveEventHandler;
-            //canvasPlanePanel1.MouseClick += PlanePanel.DefaultMouseClickEventHandler;
-            canvasPlanePanel1.MouseWheel += PlanePanel.DefaultMouseWheelEventHandler;
+
             layerTabPanel1.SetDelegateCanvasPlanePanel(canvasPlanePanel1);
+            canvasPlanePanel1.MouseMove += CanvasPlanePanel1_MouseMove;
+            
+            toolStrip1.Items.Add(new PencilBrush());
+            toolStrip1.Items.Add(new HandBrush());
+            canvasPlanePanel1.MyColorPicker = colorPickerPanel1;
+            canvasPlanePanel1.SetToolStrip(toolStrip1);
+            canvasPlanePanel1.MyToolSettingsGroupBox = toolSettingsGroupBox;
+
+            toolStrip1.Items[0].PerformClick();
         }
 
+        private void CanvasPlanePanel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            int[] c = canvasPlanePanel1.CanvasPlanePanelToCanvasCoordinates(new double[] { e.X, e.Y });
+            mouseCoordinateLabel.Text = "Mouse (" + c[0].ToString() + ", " + c[1].ToString() + ")";
+        }
     }
 }

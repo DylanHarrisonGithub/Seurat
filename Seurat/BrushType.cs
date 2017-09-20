@@ -8,14 +8,16 @@ using System.Windows.Forms;
 
 namespace Seurat
 {
-    abstract class BrushType
+    abstract class BrushType : ToolStripButton
     {
-        Image Icon;
-        Image Cursor;
-        String Name;
-        String ToolTip;
 
-        abstract public MouseEventBundle MouseEvents();
         abstract public Panel ControlPanel();
+
+        abstract public void MouseUp(CanvasPlanePanel cpp, MouseEventArgs e);
+        abstract public void MouseDown(CanvasPlanePanel cpp, MouseEventArgs e);
+        abstract public void MouseMove(CanvasPlanePanel cpp, MouseEventArgs e);
+        abstract public void MouseClick(CanvasPlanePanel cpp, MouseEventArgs e);
+        abstract public void MouseWheel(CanvasPlanePanel cpp, MouseEventArgs e);
+
     }
 }

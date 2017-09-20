@@ -17,33 +17,98 @@ namespace Seurat
         public UInt32 CanvasBackgroundColor = 0xffffffff;
         public double[] CanvasNorthWest = new double[] { 0, 0 };
         public double[] CanvasSouthEast = new double[] { 256, -256 };
-        private MouseEventBundle ActiveMouseEvents;
+        public BrushType ActiveBrush;
+        public ColorPickerPanel MyColorPicker;
+        private ToolStrip MyToolStrip;
+        public GroupBox MyToolSettingsGroupBox;
 
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
             BackgroundColor = 0xffdddddd;
             Layers = new List<CanvasLayer>();
-            Layers.Add(new CanvasLayer("Layer1", true, 256, 256));
-            Layers.Add(new CanvasLayer("Layer2", true, 256, 256));
+            Layers.Add(new CanvasLayer("Layer1", true, CanvasWidth, CanvasHeight));
+            Layers[0].isActiveLayer = true;
+            
+            CompositeLayer = new CanvasLayer("Composite Layer", true, CanvasWidth, CanvasHeight);
+            DrawingLayer = new CanvasLayer("Drawing Layer", true, CanvasWidth, CanvasHeight);
+            Center = new double[] { CanvasWidth / 2, -(CanvasHeight / 2) };
 
-            Graphics g1 = Graphics.FromImage(Layers[0].DBMP.bmp);
-            Graphics g2 = Graphics.FromImage(Layers[1].DBMP.bmp);
-            g1.FillRectangle(new SolidBrush(System.Drawing.Color.Blue), new Rectangle(0, 0, 200, 200));
-            g2.FillRectangle(new SolidBrush(System.Drawing.Color.Green), new Rectangle(128, 128, 200, 200));
+            MouseUp += (object sender, MouseEventArgs e) =>
+            {
+                if (ActiveBrush != null)
+                {
+                    ActiveBrush.MouseUp(this, e);
+                }
+            };
+            MouseDown += (object sender, MouseEventArgs e) =>
+            {
+                if (ActiveBrush != null)
+                {
+                    ActiveBrush.MouseDown(this, e);
+                }
+            };
+            MouseMove += (object sender, MouseEventArgs e) =>
+            {
+                if (ActiveBrush != null)
+                {
+                    ActiveBrush.MouseMove(this, e);
+                }
+            };
+            MouseClick += (object sender, MouseEventArgs e) =>
+            {
+                if (ActiveBrush != null)
+                {
+                    ActiveBrush.MouseClick(this, e);
+                }
+            };
+            MouseWheel += (object sender, MouseEventArgs e) =>
+            {
+                if (ActiveBrush != null)
+                {
+                    ActiveBrush.MouseWheel(this, e);
+                }
+            };
 
-            CompositeLayer = new CanvasLayer("Composite Layer", true, 256, 256);
-            DrawingLayer = new CanvasLayer("Drawing Layer", true, 256, 256);
-            Center = new double[] { 128, -128 };
         }
 
-        public int GetCanvasWidth()
+        public void SetToolStrip(ToolStrip ts)
         {
-            return (int)(CanvasSouthEast[0] - CanvasNorthWest[0] + 1.0);
+            MyToolStrip = ts;
+            MyToolStrip.ItemClicked += (object sender, ToolStripItemClickedEventArgs e) => {
+                ActiveBrush = (BrushType)e.ClickedItem;
+                if (MyToolSettingsGroupBox != null)
+                {
+                    MyToolSettingsGroupBox.Controls.Clear();
+                    MyToolSettingsGroupBox.Controls.Add(ActiveBrush.ControlPanel());
+                }
+            };
         }
-        public int GetCanvasHeight()
+
+        public CanvasLayer GetActiveLayer()
         {
-            return (int)(CanvasSouthEast[1] - CanvasNorthWest[1] + 1.0);
+            CanvasLayer al = null;
+
+            foreach (CanvasLayer l in Layers)
+            {
+                if (l.isActiveLayer)
+                {
+                    al = l;
+                }
+            }
+
+            return al;
+        }
+
+        public int[] CanvasPlanePanelToCanvasCoordinates(double[] PlanePanelCoordinates)
+        {
+            int[] coords = new int[] { 0, 0 };
+
+            double[] planeCoords = PanelToPlaneCoordinates(PlanePanelCoordinates);
+            coords[0] = (int)(planeCoords[0] - CanvasNorthWest[0]);
+            coords[1] = (int)-(planeCoords[1] - CanvasNorthWest[1]);
+
+            return coords;
         }
 
         protected override void OnPaint(PaintEventArgs e)

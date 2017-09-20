@@ -21,18 +21,15 @@ namespace Seurat
         private Panel PanelColorDisplayC1;
         private Panel PanelColorDisplayC2;
         private VerticalGradientPanel VerticalGradient;
-        public UInt32 C1 { get; private set; } = 0xffffffff;
-        public UInt32 C2 { get; private set; } = 0xff000000;
+        public UInt32 C1 { get; private set; } = 0xff000000;
+        public UInt32 C2 { get; private set; } = 0xffffffff;
+        
 
         public ColorPickerPanel()
         {
             CreateGUI();
             SetupTrackBars();
             DoubleBuffered = true;
-        }
-        protected override void OnCreateControl()
-        {
-            base.OnCreateControl();
         }
 
         private void ComponentTrackBarChangedEvent(object sender, System.EventArgs e)
@@ -196,7 +193,7 @@ namespace Seurat
             TrackBarC1.Minimum = 0;
             TrackBarC1.Maximum = 255;
             TrackBarC1.Dock = DockStyle.Fill;
-            TrackBarC1.Value = 255;
+            TrackBarC1.Value = 0;
             TrackBarC1.Margin = new Padding(0, 0, 0, 0);
             TrackBarC1.Padding = new Padding(0, 0, 0, 0);
             //GradientPanel
@@ -209,6 +206,7 @@ namespace Seurat
             TrackBarC2.TickStyle = TickStyle.None;
             TrackBarC2.Minimum = 0;
             TrackBarC2.Maximum = 255;
+            TrackBarC2.Value = 255;
             TrackBarC2.Dock = DockStyle.Fill;
             TrackBarC2.RightToLeft = RightToLeft.Yes;
             TrackBarC2.RightToLeftLayout = true;
@@ -289,8 +287,8 @@ namespace Seurat
             c1c2DisplayAndOpacityTable.Controls.Add(TrackBarOpacity, 1, 1);
 
             //c1 and c2 display panels
-            PanelColorDisplayC1 = new Panel() { Dock = DockStyle.Fill, BackColor = System.Drawing.Color.White, Padding = new Padding(0, 0, 0, 0), Margin = new Padding(0, 0, 0, 0) };
-            PanelColorDisplayC2 = new Panel() { Dock = DockStyle.Fill, BackColor = System.Drawing.Color.Black, Padding = new Padding(0, 0, 0, 0), Margin = new Padding(0, 0, 0, 0) };
+            PanelColorDisplayC1 = new Panel() { Dock = DockStyle.Fill, BackColor = System.Drawing.Color.Black, Padding = new Padding(0, 0, 0, 0), Margin = new Padding(0, 0, 0, 0) };
+            PanelColorDisplayC2 = new Panel() { Dock = DockStyle.Fill, BackColor = System.Drawing.Color.White, Padding = new Padding(0, 0, 0, 0), Margin = new Padding(0, 0, 0, 0) };
             C1BackGroundPanel.Controls.Add(PanelColorDisplayC1);
             C2BackGroundPanel.Controls.Add(PanelColorDisplayC2);
 

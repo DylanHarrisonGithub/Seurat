@@ -60,7 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrushType.cs" />
+    <Compile Include="BrushType.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CanvasLayer.cs" />
     <Compile Include="CanvasPlanePanel.cs">
       <SubType>Component</SubType>
@@ -75,10 +77,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HandBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LayerTabPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="MouseEventBundle.cs" />
+    <Compile Include="PencilBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PlanePanel.cs">
       <SubType>Component</SubType>
     </Compile>

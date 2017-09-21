@@ -17,6 +17,8 @@ namespace Seurat
             Image = Properties.Resources.if_pencil_285638;
         }
 
+        public override Cursor MyCursor { get => Cursors.Arrow; }
+
         public override Panel ControlPanel()
         {
             return new Panel();

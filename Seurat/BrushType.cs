@@ -11,6 +11,7 @@ namespace Seurat
     abstract class BrushType : ToolStripButton
     {
 
+        abstract public Cursor MyCursor { get; }
         abstract public Panel ControlPanel();
 
         abstract public void MouseUp(CanvasPlanePanel cpp, MouseEventArgs e);

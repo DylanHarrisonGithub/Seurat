@@ -15,7 +15,9 @@ namespace Seurat
             this.Image = Properties.Resources.if_icon_3_high_five_329409;
         }
 
-        public override Panel ControlPanel()
+        public override Cursor MyCursor { get => Cursors.Hand; }
+
+    public override Panel ControlPanel()
         {
             return new Panel();
         }

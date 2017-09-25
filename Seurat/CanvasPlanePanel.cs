@@ -21,7 +21,7 @@ namespace Seurat
         public BrushType ActiveBrush;
         public ColorPickerPanel MyColorPicker;
         private ToolStrip MyToolStrip;
-        public GroupBox MyToolSettingsGroupBox;
+        public Panel MyToolSettingsPanel;
         private Cursor SavedCursor;
         private bool inResizeState;
 
@@ -37,6 +37,7 @@ namespace Seurat
             DrawingLayer = new CanvasLayer("Drawing Layer", true, CanvasWidth, CanvasHeight);
             Center = new double[] { CanvasWidth / 2, -(CanvasHeight / 2) };
 
+            //brush tool mouse listeners
             MouseUp += (object sender, MouseEventArgs e) =>
             {
                 if ((ActiveBrush != null) && !inResizeState)
@@ -192,10 +193,10 @@ namespace Seurat
             MyToolStrip = ts;
             MyToolStrip.ItemClicked += (object sender, ToolStripItemClickedEventArgs e) => {
                 ActiveBrush = (BrushType)e.ClickedItem;
-                if (MyToolSettingsGroupBox != null)
+                if (MyToolSettingsPanel != null)
                 {
-                    MyToolSettingsGroupBox.Controls.Clear();
-                    MyToolSettingsGroupBox.Controls.Add(ActiveBrush.ControlPanel());
+                    MyToolSettingsPanel.Controls.Clear();
+                    MyToolSettingsPanel.Controls.Add(ActiveBrush.ControlPanel());                    
                 }
             };
         }

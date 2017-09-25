@@ -10,16 +10,24 @@ namespace Seurat
     class HandBrush : BrushType
     {
 
+        public override Cursor MyCursor { get => Cursors.Hand; }
+
         public HandBrush()
         {
             this.Image = Properties.Resources.if_icon_3_high_five_329409;
         }
 
-        public override Cursor MyCursor { get => Cursors.Hand; }
+        
 
     public override Panel ControlPanel()
-        {
-            return new Panel();
+        {            
+            Panel p = new Panel();
+            ControlPanelControlStack s = new ControlPanelControlStack();
+            s.AddHeaderLabel("Hand", System.Drawing.Color.White, System.Drawing.Color.DarkViolet);
+            s.AddHeaderLabel("", System.Drawing.Color.FromArgb(0), System.Drawing.Color.FromArgb(0));
+            p.Controls.Add(s);
+            p.AutoSize = true;
+            return p;
         }
 
         public override void MouseClick(CanvasPlanePanel cpp, MouseEventArgs e)

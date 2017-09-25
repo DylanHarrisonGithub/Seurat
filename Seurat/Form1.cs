@@ -23,17 +23,15 @@ namespace Seurat
 
             layerTabPanel1.SetDelegateCanvasPlanePanel(canvasPlanePanel1);
             canvasPlanePanel1.MouseMove += CanvasPlanePanel1_MouseMove;
-            
+
             toolStrip1.Items.Add(new PencilBrush());
             toolStrip1.Items.Add(new HandBrush());
+            toolStrip1.Items.Add(new BoxBrush());
             canvasPlanePanel1.MyColorPicker = colorPickerPanel1;
             canvasPlanePanel1.SetToolStrip(toolStrip1);
-            canvasPlanePanel1.MyToolSettingsGroupBox = toolSettingsGroupBox;
-            //canvasPlanePanel1.CompositeLayer.DBMP.bmp.Save("test", System.Drawing.Imaging.ImageFormat.Png);
+            canvasPlanePanel1.MyToolSettingsPanel = panel4;
             toolStrip1.Items[0].PerformClick();
         }
-
-
 
         private void CanvasPlanePanel1_MouseMove(object sender, MouseEventArgs e)
         {

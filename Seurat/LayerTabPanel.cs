@@ -52,8 +52,7 @@ namespace Seurat
                         {
                             l.isActiveLayer = false;
                         }
-                    }
-                   
+                    }                   
                 }
             };
             
@@ -70,7 +69,12 @@ namespace Seurat
                 NewTab.Name = l.Name;
                 NewTab.Text = l.Name;
                 TabPages.Add(NewTab);
+                if (l.isActiveLayer)
+                {
+                    SelectedTab = NewTab;
+                }
             }
+            
             TabPage t = new TabPage();
             t.Name = "tabPageAddLayer";
             t.Text = "+";

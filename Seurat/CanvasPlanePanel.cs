@@ -24,6 +24,8 @@ namespace Seurat
         public Panel MyToolSettingsPanel;
         private Cursor SavedCursor;
         private bool inResizeState;
+        public bool showGrid = true;
+        public bool showAxes = true;
 
         protected override void OnCreateControl()
         {
@@ -32,7 +34,7 @@ namespace Seurat
             Layers = new List<CanvasLayer>();
             Layers.Add(new CanvasLayer("Layer1", true, CanvasWidth, CanvasHeight));
             Layers[0].isActiveLayer = true;
-            
+
             CompositeLayer = new CanvasLayer("Composite Layer", true, CanvasWidth, CanvasHeight);
             DrawingLayer = new CanvasLayer("Drawing Layer", true, CanvasWidth, CanvasHeight);
             Center = new double[] { CanvasWidth / 2, -(CanvasHeight / 2) };
@@ -50,21 +52,21 @@ namespace Seurat
                 if ((ActiveBrush != null) && !inResizeState)
                 {
                     ActiveBrush.MouseDown(this, e);
-                }                
+                }
             };
             MouseMove += (object sender, MouseEventArgs e) =>
-            {                
+            {
                 if ((ActiveBrush != null) && !inResizeState)
                 {
                     ActiveBrush.MouseMove(this, e);
-                }               
+                }
             };
             MouseClick += (object sender, MouseEventArgs e) =>
-            {               
+            {
                 if ((ActiveBrush != null) && !inResizeState)
                 {
                     ActiveBrush.MouseClick(this, e);
-                }                
+                }
             };
             MouseWheel += (object sender, MouseEventArgs e) =>
             {
@@ -74,7 +76,7 @@ namespace Seurat
                 }
             };
 
-            MouseEnter += (object sender, EventArgs e) => 
+            MouseEnter += (object sender, EventArgs e) =>
             {
                 if (ActiveBrush != null)
                 {
@@ -183,9 +185,24 @@ namespace Seurat
                         //Center = new double[] { CanvasWidth / 2, -(CanvasHeight / 2) };
                         CanvasSouthEast = new double[] { CanvasWidth, -CanvasHeight };
                         Invalidate();
-                    }                   
+                    }
                 }
             };
+        }
+
+        public void ResetCanvas()
+        {
+            foreach (CanvasLayer l in Layers)
+            {
+                l.DBMP.Dispose();
+            }
+            Layers = new List<CanvasLayer>();
+            Layers.Add(new CanvasLayer("Layer1", true, CanvasWidth, CanvasHeight));
+            Layers[0].isActiveLayer = true;
+            DrawingLayer.DBMP.SetSize(CanvasWidth, CanvasHeight);
+            CompositeLayer.DBMP.SetSize(CanvasWidth, CanvasHeight);
+            CanvasSouthEast = new double[] { CanvasWidth, -CanvasHeight };
+            Invalidate();
         }
 
         public void SetToolStrip(ToolStrip ts)
@@ -298,8 +315,14 @@ namespace Seurat
             g.FillRectangle(new SolidBrush(Color.Black), new Rectangle((int)(NW[0]) + 3, (int)NW[1] + 3, (int)(SE[0] - NW[0]) + 3, (int)((SE[1] - NW[1])) + 3));
             g.DrawImage(CompositeLayer.DBMP.bmp, (int)(NW[0]), (int)NW[1], (int)(SE[0] - NW[0]), (int)((SE[1] - NW[1])));
             
-            DrawGrid(g);
-            DrawAxes(g);
+            if (showGrid)
+            {
+                DrawGrid(g);
+            }
+            if (showAxes)
+            {
+                DrawAxes(g);
+            }
 
             if (inResizeState && (MouseButtons == MouseButtons.Left))
             {

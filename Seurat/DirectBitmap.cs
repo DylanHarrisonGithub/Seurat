@@ -49,6 +49,7 @@ namespace Seurat
             Bitmap NewBmp = new Bitmap(NewWidth, NewHeight, NewWidth * 4, PixelFormat.Format32bppPArgb, NewBitsHandle.AddrOfPinnedObject());
             Graphics g = Graphics.FromImage(NewBmp);
             g.DrawImage(bmp, new Point(0, 0));
+            g.Dispose();
 
             bmp.Dispose();
             bitsHandle.Free();
@@ -60,6 +61,38 @@ namespace Seurat
 
             height = NewHeight;
             width = NewWidth;
+        }
+
+        public void StretchSetSize(int newWidth, int newHeight, bool smooth)
+        {
+            UInt32[] NewPixelBuffer = new UInt32[newWidth * newHeight];
+            GCHandle NewBitsHandle = GCHandle.Alloc(NewPixelBuffer, GCHandleType.Pinned);
+            Bitmap NewBmp = new Bitmap(newWidth, newHeight, newWidth * 4, PixelFormat.Format32bppPArgb, NewBitsHandle.AddrOfPinnedObject());
+            Graphics g = Graphics.FromImage(NewBmp);
+
+            if (smooth)
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            } else
+            {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            }
+
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
+            g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+            g.DrawImage(bmp, 0, 0, newWidth, newHeight);
+            g.Dispose();
+
+            bmp.Dispose();
+            bitsHandle.Free();
+            disposed = false;
+
+            pixelBuffer = NewPixelBuffer;
+            bitsHandle = NewBitsHandle;
+            bmp = NewBmp;
+
+            height = newHeight;
+            width = newWidth;
         }
 
         public void drawGrid(int x, int y)

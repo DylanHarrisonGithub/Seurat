@@ -31,11 +31,12 @@ namespace Seurat
 
                         if (DelegateCanvasPlanePanel != null)
                         {
+                            //fixed bug here width/height |--> CanvasWidth/height
                             DelegateCanvasPlanePanel.Layers.Add(new CanvasLayer(
                                 NewTab.Name,
                                 true,
-                                DelegateCanvasPlanePanel.Width,
-                                DelegateCanvasPlanePanel.Height));
+                                DelegateCanvasPlanePanel.CanvasWidth,
+                                DelegateCanvasPlanePanel.CanvasHeight));
                         }
                     }
                 }

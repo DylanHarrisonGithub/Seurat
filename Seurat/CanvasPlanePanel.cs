@@ -174,16 +174,7 @@ namespace Seurat
                         {
                             d[0] = CanvasWidth;
                         }
-                        CompositeLayer.DBMP.SetSize(d[0], d[1]);
-                        DrawingLayer.DBMP.SetSize(d[0], d[1]);
-                        foreach (CanvasLayer l in this.Layers)
-                        {
-                            l.DBMP.SetSize(d[0], d[1]);
-                        }
-                        CanvasWidth = d[0];
-                        CanvasHeight = d[1];
-                        //Center = new double[] { CanvasWidth / 2, -(CanvasHeight / 2) };
-                        CanvasSouthEast = new double[] { CanvasWidth, -CanvasHeight };
+                        CropCanvas(d[0], d[1]);
                         Invalidate();
                     }
                 }
@@ -203,6 +194,50 @@ namespace Seurat
             CompositeLayer.DBMP.SetSize(CanvasWidth, CanvasHeight);
             CanvasSouthEast = new double[] { CanvasWidth, -CanvasHeight };
             Invalidate();
+        }
+
+        public void CropCanvas(int newWidth, int newHeight)
+        {
+            if (newWidth > 0 && newHeight > 0)
+            {
+                CompositeLayer.DBMP.SetSize(newWidth, newHeight);
+                DrawingLayer.DBMP.SetSize(newWidth, newHeight);
+                foreach (CanvasLayer l in this.Layers)
+                {
+                    l.DBMP.SetSize(newWidth, newHeight);
+                }
+                CanvasWidth = newWidth;
+                CanvasHeight = newHeight;
+                CanvasSouthEast = new double[] { CanvasWidth, -CanvasHeight };
+            }
+        }
+
+        public void StretchCanvas(int newWidth, int newHeight, bool smooth)
+        {
+            if (newWidth > 0 && newHeight > 0)
+            {
+                if (smooth)
+                {
+                    CompositeLayer.DBMP.SetSize(newWidth, newHeight);
+                    DrawingLayer.DBMP.SetSize(newWidth, newHeight);
+                    foreach (CanvasLayer l in this.Layers)
+                    {
+                        l.DBMP.StretchSetSize(newWidth, newHeight, false);
+                        MessageBox.Show(newWidth.ToString() + ", " + newHeight.ToString());
+                    }
+                } else
+                {
+                    CompositeLayer.DBMP.SetSize(newWidth, newHeight);
+                    DrawingLayer.DBMP.SetSize(newWidth, newHeight);
+                    foreach (CanvasLayer l in this.Layers)
+                    {
+                        l.DBMP.StretchSetSize(newWidth, newHeight, false);
+                    }
+                }
+                CanvasWidth = newWidth;
+                CanvasHeight = newHeight;
+                CanvasSouthEast = new double[] { CanvasWidth, -CanvasHeight };
+            }
         }
 
         public void SetToolStrip(ToolStrip ts)

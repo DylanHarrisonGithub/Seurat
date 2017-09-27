@@ -139,7 +139,7 @@ namespace Seurat
             };
 
             Label textLabel = new Label() { Left = 50, Top = 20, Text = "Enter a new layer name" };
-            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
+            TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400, Text = canvasPlanePanel1.GetActiveLayer().Name };
             Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70, DialogResult = DialogResult.OK };
             confirmation.Click += (object s, EventArgs eargs) => {
                 if (textBox.Text == "")
@@ -292,5 +292,201 @@ namespace Seurat
             showGridToolStripMenuItem.Checked = canvasPlanePanel1.showGrid;
             showAxesToolStripMenuItem.Checked = canvasPlanePanel1.showAxes;
         }
+
+        private void panToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form panDialog = new Form()
+            {
+                Width = 300,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Move To ",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = "Move to Location" };
+            Label xLabel = new Label() { Left = 50, Top = 50, Width = 30, Text = "x" };
+            Label yLabel = new Label() { Left = 50, Top = 80, Width = 30, Text = "y" };
+
+            TextBox xTextBox = new TextBox() { Left = 80, Top = 50, Width = 100, Text = canvasPlanePanel1.Center[0].ToString() };
+            TextBox yTextBox = new TextBox() { Left = 80, Top = 80, Width = 100, Text = canvasPlanePanel1.Center[1].ToString() };
+
+            Button confirmation = new Button() { Text = "Ok", Left = 100, Width = 100, Top = 120, DialogResult = DialogResult.OK };
+            confirmation.Click += (object s, EventArgs eargs) => {
+                double x, y;
+                if (Double.TryParse(xTextBox.Text, out x) && Double.TryParse(yTextBox.Text, out y)) {
+                    canvasPlanePanel1.Center[0] = x;
+                    canvasPlanePanel1.Center[1] = y;
+                    canvasPlanePanel1.Invalidate();
+                } else
+                {
+                    MessageBox.Show("Could not move to those coordinates");
+                }
+            };
+
+            panDialog.Controls.Add(xLabel);
+            panDialog.Controls.Add(yLabel);
+            panDialog.Controls.Add(xTextBox);
+            panDialog.Controls.Add(yTextBox);
+            panDialog.Controls.Add(confirmation);
+            panDialog.Controls.Add(textLabel);
+            panDialog.AcceptButton = confirmation;
+
+            panDialog.ShowDialog();
+        }
+
+        private void zoomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form zoomDialog = new Form()
+            {
+                Width = 300,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Zoom ",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = "Set Zoom" };
+            Label zLabel = new Label() { Left = 50, Top = 50, Width = 40, Text = "zoom" };
+
+            TextBox zTextBox = new TextBox() { Left = 90, Top = 50, Width = 100, Text = canvasPlanePanel1.Zoom.ToString() };
+            
+            Button confirmation = new Button() { Text = "Ok", Left = 100, Width = 100, Top = 120, DialogResult = DialogResult.OK };
+            confirmation.Click += (object s, EventArgs eargs) => {
+                double z;
+                if (Double.TryParse(zTextBox.Text, out z))
+                {
+                    if (z != 0)
+                    {
+                        canvasPlanePanel1.Zoom = z;
+                        canvasPlanePanel1.ZoomInverse = 1.0 / z;
+                        canvasPlanePanel1.Invalidate();
+                    } else
+                    {
+                        MessageBox.Show("Could not set to that zoom level");
+                    }
+                } else
+                {
+                    MessageBox.Show("Could not set to that zoom level");
+                }
+            };
+
+            zoomDialog.Controls.Add(zLabel);
+            zoomDialog.Controls.Add(zTextBox);
+            zoomDialog.Controls.Add(confirmation);
+            zoomDialog.Controls.Add(textLabel);
+            zoomDialog.AcceptButton = confirmation;
+
+            zoomDialog.ShowDialog();
+        }
+
+        private void cropToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form cropDialog = new Form()
+            {
+                Width = 300,
+                Height = 200,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Crop Image ",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = "Crop" };
+            Label xLabel = new Label() { Left = 50, Top = 50, Width = 30, Text = "Width" };
+            Label yLabel = new Label() { Left = 50, Top = 80, Width = 30, Text = "Height" };
+
+            TextBox xTextBox = new TextBox() { Left = 80, Top = 50, Width = 100, Text = canvasPlanePanel1.CanvasWidth.ToString() };
+            TextBox yTextBox = new TextBox() { Left = 80, Top = 80, Width = 100, Text = canvasPlanePanel1.CanvasHeight.ToString() };
+
+            Button confirmation = new Button() { Text = "Ok", Left = 100, Width = 100, Top = 120, DialogResult = DialogResult.OK };
+            confirmation.Click += (object s, EventArgs eargs) => {
+                double x, y;
+                if (Double.TryParse(xTextBox.Text, out x) && Double.TryParse(yTextBox.Text, out y))
+                {
+                    canvasPlanePanel1.CropCanvas((int)x, (int)y);
+                    canvasPlanePanel1.Invalidate();
+                }
+                else
+                {
+                    MessageBox.Show("Could not crop to new size");
+                }
+            };
+
+            cropDialog.Controls.Add(xLabel);
+            cropDialog.Controls.Add(yLabel);
+            cropDialog.Controls.Add(xTextBox);
+            cropDialog.Controls.Add(yTextBox);
+            cropDialog.Controls.Add(confirmation);
+            cropDialog.Controls.Add(textLabel);
+            cropDialog.AcceptButton = confirmation;
+
+            cropDialog.ShowDialog();
+        }
+
+        private void stretchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form stretchDialog = new Form()
+            {
+                Width = 300,
+                Height = 230,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Stretch Image ",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label textLabel = new Label() { Left = 50, Top = 20, Text = "Stretch" };
+            Label xLabel = new Label() { Left = 50, Top = 50, Width = 30, Text = "Width" };
+            Label yLabel = new Label() { Left = 50, Top = 80, Width = 30, Text = "Height" };
+            Label smoothLabel = new Label() { Left = 50, Top = 110, Width = 50, Text = "Smooth" };
+
+            TextBox xTextBox = new TextBox() { Left = 80, Top = 50, Width = 100, Text = canvasPlanePanel1.CanvasWidth.ToString() };
+            TextBox yTextBox = new TextBox() { Left = 80, Top = 80, Width = 100, Text = canvasPlanePanel1.CanvasHeight.ToString() };
+
+            CheckBox smoothCheckBox = new CheckBox() { Left = 120, Top = 106};
+            Button confirmation = new Button() { Text = "Ok", Left = 100, Width = 100, Top = 150, DialogResult = DialogResult.OK };
+            confirmation.Click += (object s, EventArgs eargs) => {
+                double x, y;
+                if (Double.TryParse(xTextBox.Text, out x) && Double.TryParse(yTextBox.Text, out y))
+                {
+                    if (x > 0 && y > 0)
+                    {
+                        if (smoothCheckBox.Checked)
+                        {
+                            canvasPlanePanel1.StretchCanvas((int)x, (int)y, true);
+                        } else
+                        {
+                            canvasPlanePanel1.StretchCanvas((int)x, (int)y, false);
+                        }
+                        
+                        canvasPlanePanel1.Invalidate();
+                    } else
+                    {
+                        MessageBox.Show("Could not stretch to new size");
+                    }                    
+                }
+                else
+                {
+                    MessageBox.Show("Could not stretch to new size");
+                }
+            };
+
+            stretchDialog.Controls.Add(xLabel);
+            stretchDialog.Controls.Add(yLabel);
+            stretchDialog.Controls.Add(xTextBox);
+            stretchDialog.Controls.Add(yTextBox);
+            stretchDialog.Controls.Add(smoothLabel);
+            stretchDialog.Controls.Add(smoothCheckBox);
+            stretchDialog.Controls.Add(confirmation);
+            stretchDialog.Controls.Add(textLabel);
+            stretchDialog.AcceptButton = confirmation;
+
+            stretchDialog.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

@@ -15,6 +15,7 @@ namespace Seurat
         private Pen MyPen;
         private GraphicsPath myPath;
         public override Cursor MyCursor { get => Cursors.Arrow; }
+        private TrackBar myWidthTrackBar;
 
         public PencilBrush()
         {
@@ -22,10 +23,8 @@ namespace Seurat
             MyPen = new Pen(Color.Black);
             MyPen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             MyPen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
-            MyPen.LineJoin = System.Drawing.Drawing2D.LineJoin.Round ;
+            MyPen.LineJoin = System.Drawing.Drawing2D.LineJoin.Round;
         }
-
-        
 
         public override Panel ControlPanel()
         {
@@ -47,7 +46,8 @@ namespace Seurat
                 }, MyPen.StartCap.ToString());
 
             p.Controls.Add(c);
-            
+
+            myWidthTrackBar = (TrackBar)c.StackControls[1];
             ((TrackBar)c.StackControls[1]).ValueChanged += (object sender, EventArgs e) => 
             {
                 TrackBar tb = (TrackBar)sender;
@@ -122,7 +122,7 @@ namespace Seurat
                 Graphics g = Graphics.FromImage(cpp.DrawingLayer.DBMP.bmp);
                 MyPen.Color = Color.FromArgb((int)cpp.MyColorPicker.C1);
 
-                g.Clear(Color.FromArgb(0x00000000));
+                g.Clear(Color.FromArgb(0));
                 g.DrawPath(MyPen, myPath);
 
                 previousCoordinates1 = currentCoordinates;
@@ -138,7 +138,7 @@ namespace Seurat
                 Graphics g = Graphics.FromImage(cpp.DrawingLayer.DBMP.bmp);
                 MyPen.Color = Color.FromArgb((int)cpp.MyColorPicker.C2);
 
-                g.Clear(Color.FromArgb(0x00000000));
+                g.Clear(Color.FromArgb(0));
                 g.DrawPath(MyPen, myPath);
 
                 previousCoordinates1 = currentCoordinates;
@@ -158,6 +158,23 @@ namespace Seurat
 
         public override void MouseWheel(CanvasPlanePanel cpp, MouseEventArgs e)
         {
+            if (myWidthTrackBar != null)
+            {
+                if (e.Delta > 0)
+                {
+                    if (myWidthTrackBar.Value < myWidthTrackBar.Maximum)
+                    {
+                        myWidthTrackBar.Value = myWidthTrackBar.Value + 1;
+                    }
+                }
+                else
+                {
+                    if (myWidthTrackBar.Value > myWidthTrackBar.Minimum)
+                    {
+                        myWidthTrackBar.Value = myWidthTrackBar.Value - 1;
+                    }
+                }
+            }
         }
     }
 }

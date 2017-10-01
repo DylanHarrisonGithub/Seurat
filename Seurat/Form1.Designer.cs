@@ -135,7 +135,7 @@
             this.workingPanel.Location = new System.Drawing.Point(0, 24);
             this.workingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.workingPanel.Name = "workingPanel";
-            this.workingPanel.Size = new System.Drawing.Size(699, 322);
+            this.workingPanel.Size = new System.Drawing.Size(520, 334);
             this.workingPanel.TabIndex = 1;
             // 
             // canvasPlanePanel1
@@ -145,7 +145,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.canvasPlanePanel1.Location = new System.Drawing.Point(3, 22);
             this.canvasPlanePanel1.Name = "canvasPlanePanel1";
-            this.canvasPlanePanel1.Size = new System.Drawing.Size(691, 266);
+            this.canvasPlanePanel1.Size = new System.Drawing.Size(512, 278);
             this.canvasPlanePanel1.TabIndex = 3;
             // 
             // layerTabPanel1
@@ -158,7 +158,7 @@
             this.layerTabPanel1.MinimumSize = new System.Drawing.Size(0, 18);
             this.layerTabPanel1.Name = "layerTabPanel1";
             this.layerTabPanel1.SelectedIndex = 0;
-            this.layerTabPanel1.Size = new System.Drawing.Size(691, 18);
+            this.layerTabPanel1.Size = new System.Drawing.Size(512, 18);
             this.layerTabPanel1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.layerTabPanel1.TabIndex = 2;
             // 
@@ -167,7 +167,7 @@
             this.tabPageAddLayer.Location = new System.Drawing.Point(4, 22);
             this.tabPageAddLayer.Name = "tabPageAddLayer";
             this.tabPageAddLayer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAddLayer.Size = new System.Drawing.Size(683, 0);
+            this.tabPageAddLayer.Size = new System.Drawing.Size(504, 0);
             this.tabPageAddLayer.TabIndex = 1;
             this.tabPageAddLayer.Text = "+";
             this.tabPageAddLayer.UseVisualStyleBackColor = true;
@@ -178,12 +178,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.infoPanel.BackColor = System.Drawing.SystemColors.Menu;
             this.infoPanel.Controls.Add(this.tableLayoutPanel3);
-            this.infoPanel.Location = new System.Drawing.Point(0, 294);
+            this.infoPanel.Location = new System.Drawing.Point(0, 306);
             this.infoPanel.Margin = new System.Windows.Forms.Padding(0);
             this.infoPanel.MaximumSize = new System.Drawing.Size(99999, 28);
             this.infoPanel.MinimumSize = new System.Drawing.Size(0, 28);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(697, 28);
+            this.infoPanel.Size = new System.Drawing.Size(518, 28);
             this.infoPanel.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -208,7 +208,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(697, 28);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(518, 28);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // mouseCoordinateLabel
@@ -216,7 +216,7 @@
             this.mouseCoordinateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.mouseCoordinateLabel.AutoSize = true;
-            this.mouseCoordinateLabel.Location = new System.Drawing.Point(581, 3);
+            this.mouseCoordinateLabel.Location = new System.Drawing.Point(431, 3);
             this.mouseCoordinateLabel.Name = "mouseCoordinateLabel";
             this.mouseCoordinateLabel.Size = new System.Drawing.Size(39, 22);
             this.mouseCoordinateLabel.TabIndex = 0;
@@ -227,7 +227,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(466, 7);
+            this.label2.Location = new System.Drawing.Point(346, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 1;
@@ -237,7 +237,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(351, 7);
+            this.label3.Location = new System.Drawing.Point(261, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 2;
@@ -247,7 +247,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(236, 7);
+            this.label4.Location = new System.Drawing.Point(176, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 3;
@@ -257,7 +257,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(121, 7);
+            this.label5.Location = new System.Drawing.Point(91, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 4;
@@ -279,12 +279,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.controlsPanel.BackColor = System.Drawing.Color.Blue;
             this.controlsPanel.Controls.Add(this.tableLayoutPanel1);
-            this.controlsPanel.Location = new System.Drawing.Point(697, 24);
+            this.controlsPanel.Location = new System.Drawing.Point(518, 24);
             this.controlsPanel.Margin = new System.Windows.Forms.Padding(0);
             this.controlsPanel.MaximumSize = new System.Drawing.Size(200, 999999);
             this.controlsPanel.MinimumSize = new System.Drawing.Size(200, 0);
             this.controlsPanel.Name = "controlsPanel";
-            this.controlsPanel.Size = new System.Drawing.Size(200, 322);
+            this.controlsPanel.Size = new System.Drawing.Size(200, 334);
             this.controlsPanel.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -300,7 +300,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 322);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 334);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // colorPickerPanel
@@ -311,7 +311,7 @@
             this.colorPickerPanel.Location = new System.Drawing.Point(0, 0);
             this.colorPickerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.colorPickerPanel.Name = "colorPickerPanel";
-            this.colorPickerPanel.Size = new System.Drawing.Size(200, 161);
+            this.colorPickerPanel.Size = new System.Drawing.Size(200, 167);
             this.colorPickerPanel.TabIndex = 0;
             // 
             // groupBox1
@@ -321,7 +321,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 161);
+            this.groupBox1.Size = new System.Drawing.Size(200, 167);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Color";
@@ -332,7 +332,7 @@
             this.colorPickerPanel1.Location = new System.Drawing.Point(3, 16);
             this.colorPickerPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.colorPickerPanel1.Name = "colorPickerPanel1";
-            this.colorPickerPanel1.Size = new System.Drawing.Size(194, 142);
+            this.colorPickerPanel1.Size = new System.Drawing.Size(194, 148);
             this.colorPickerPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -343,13 +343,13 @@
             this.tableLayoutPanel2.Controls.Add(this.brushPickerPanel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 161);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 167);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 161);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 167);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // brushPickerPanel
@@ -361,7 +361,7 @@
             this.brushPickerPanel.Location = new System.Drawing.Point(0, 0);
             this.brushPickerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.brushPickerPanel.Name = "brushPickerPanel";
-            this.brushPickerPanel.Size = new System.Drawing.Size(200, 80);
+            this.brushPickerPanel.Size = new System.Drawing.Size(200, 83);
             this.brushPickerPanel.TabIndex = 0;
             // 
             // groupBox2
@@ -370,7 +370,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 80);
+            this.groupBox2.Size = new System.Drawing.Size(200, 83);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tools";
@@ -383,7 +383,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 16);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(194, 61);
+            this.panel2.Size = new System.Drawing.Size(194, 64);
             this.panel2.TabIndex = 0;
             // 
             // toolStrip1
@@ -405,10 +405,10 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.toolSettingsGroupBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 80);
+            this.panel1.Location = new System.Drawing.Point(0, 83);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 81);
+            this.panel1.Size = new System.Drawing.Size(200, 84);
             this.panel1.TabIndex = 1;
             // 
             // toolSettingsGroupBox
@@ -418,7 +418,7 @@
             this.toolSettingsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolSettingsGroupBox.Location = new System.Drawing.Point(0, 0);
             this.toolSettingsGroupBox.Name = "toolSettingsGroupBox";
-            this.toolSettingsGroupBox.Size = new System.Drawing.Size(200, 81);
+            this.toolSettingsGroupBox.Size = new System.Drawing.Size(200, 84);
             this.toolSettingsGroupBox.TabIndex = 0;
             this.toolSettingsGroupBox.TabStop = false;
             this.toolSettingsGroupBox.Text = "Tool Settings";
@@ -431,7 +431,7 @@
             this.panel3.Location = new System.Drawing.Point(3, 16);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(194, 62);
+            this.panel3.Size = new System.Drawing.Size(194, 65);
             this.panel3.TabIndex = 0;
             // 
             // panel4
@@ -522,7 +522,7 @@
             this.helpToolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(899, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(720, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -652,14 +652,14 @@
             // panToolStripMenuItem
             // 
             this.panToolStripMenuItem.Name = "panToolStripMenuItem";
-            this.panToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.panToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.panToolStripMenuItem.Text = "Pan";
             this.panToolStripMenuItem.Click += new System.EventHandler(this.panToolStripMenuItem_Click);
             // 
             // zoomToolStripMenuItem
             // 
             this.zoomToolStripMenuItem.Name = "zoomToolStripMenuItem";
-            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zoomToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.zoomToolStripMenuItem.Text = "Zoom";
             this.zoomToolStripMenuItem.Click += new System.EventHandler(this.zoomToolStripMenuItem_Click);
             // 
@@ -669,34 +669,34 @@
             this.cropToolStripMenuItem1,
             this.stretchToolStripMenuItem});
             this.cropToolStripMenuItem.Name = "cropToolStripMenuItem";
-            this.cropToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cropToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.cropToolStripMenuItem.Text = "Resize";
             // 
             // cropToolStripMenuItem1
             // 
             this.cropToolStripMenuItem1.Name = "cropToolStripMenuItem1";
-            this.cropToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.cropToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
             this.cropToolStripMenuItem1.Text = "Crop";
             this.cropToolStripMenuItem1.Click += new System.EventHandler(this.cropToolStripMenuItem1_Click);
             // 
             // stretchToolStripMenuItem
             // 
             this.stretchToolStripMenuItem.Name = "stretchToolStripMenuItem";
-            this.stretchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.stretchToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.stretchToolStripMenuItem.Text = "Stretch";
             this.stretchToolStripMenuItem.Click += new System.EventHandler(this.stretchToolStripMenuItem_Click);
             // 
             // showGridToolStripMenuItem
             // 
             this.showGridToolStripMenuItem.Name = "showGridToolStripMenuItem";
-            this.showGridToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showGridToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.showGridToolStripMenuItem.Text = "Show Grid";
             this.showGridToolStripMenuItem.Click += new System.EventHandler(this.showGridToolStripMenuItem_Click);
             // 
             // showAxesToolStripMenuItem
             // 
             this.showAxesToolStripMenuItem.Name = "showAxesToolStripMenuItem";
-            this.showAxesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showAxesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.showAxesToolStripMenuItem.Text = "Show Axes";
             this.showAxesToolStripMenuItem.Click += new System.EventHandler(this.showAxesToolStripMenuItem_Click);
             // 
@@ -711,7 +711,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.aboutToolStripMenuItem1_Click);
             // 
@@ -854,7 +854,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 349);
+            this.ClientSize = new System.Drawing.Size(720, 361);
             this.Controls.Add(this.controlsPanel);
             this.Controls.Add(this.workingPanel);
             this.Controls.Add(this.menuStrip1);

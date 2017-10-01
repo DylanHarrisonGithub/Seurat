@@ -335,7 +335,10 @@ namespace Seurat
                     c.DrawImage(l.DBMP.bmp, o);
                 if (l.isActiveLayer)
                 {
-                    c.DrawImage(DrawingLayer.DBMP.bmp, o);
+                    if (DrawingLayer.isVisible)
+                    {
+                        c.DrawImage(DrawingLayer.DBMP.bmp, o);
+                    }
                 }
             }
 

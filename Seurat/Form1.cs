@@ -20,17 +20,27 @@ namespace Seurat
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
+            //colorPickerPanel1.C1 = 0xffff0000;
 
             layerTabPanel1.SetDelegateCanvasPlanePanel(canvasPlanePanel1);
             canvasPlanePanel1.MouseMove += CanvasPlanePanel1_MouseMove;
 
-            toolStrip1.Items.Add(new PencilBrush());
             toolStrip1.Items.Add(new HandBrush());
+            toolStrip1.Items.Add(new PencilBrush());
+            toolStrip1.Items.Add(new EraserBrush());
+            toolStrip1.Items.Add(new DropperBrush());
             toolStrip1.Items.Add(new BoxBrush());
+            toolStrip1.Items.Add(new OvalBrush());
+            toolStrip1.Items.Add(new LineBrush());
+            toolStrip1.Items.Add(new CurveBrush());
+            toolStrip1.Items.Add(new TextBrush());
+            toolStrip1.Items.Add(new SprayCanBrush());
+            toolStrip1.Items.Add(new SmudgeBrush());
+            toolStrip1.Items.Add(new PaintBucketBrush());
             canvasPlanePanel1.MyColorPicker = colorPickerPanel1;
             canvasPlanePanel1.SetToolStrip(toolStrip1);
             canvasPlanePanel1.MyToolSettingsPanel = panel4;
-            toolStrip1.Items[0].PerformClick();
+            toolStrip1.Items[1].PerformClick();
         }
 
         private void CanvasPlanePanel1_MouseMove(object sender, MouseEventArgs e)

@@ -9,22 +9,21 @@ namespace Seurat
 {
     class ColorPickerPanel : Panel
     {
-        private TrackBar TrackBarC1;
-        private TrackBar TrackBarC2;
+        public TrackBar TrackBarC1;
+        public TrackBar TrackBarC2;
         private TrackBar TrackBarC1R;
         private TrackBar TrackBarC1G;
         private TrackBar TrackBarC1B;
         private TrackBar TrackBarC2R;
         private TrackBar TrackBarC2G;
         private TrackBar TrackBarC2B;
-        private TrackBar TrackBarOpacity;
+        public TrackBar TrackBarOpacity;
         private Panel PanelColorDisplayC1;
         private Panel PanelColorDisplayC2;
-        private VerticalGradientPanel VerticalGradient;
+        public VerticalGradientPanel VerticalGradient;
         public UInt32 C1 { get; private set; } = 0xff000000;
         public UInt32 C2 { get; private set; } = 0xffffffff;
         
-
         public ColorPickerPanel()
         {
             CreateGUI();
@@ -295,7 +294,7 @@ namespace Seurat
             this.Controls.Add(BaseTable);
         }
 
-        private UInt32 GetInterpolatedColor(byte t, UInt32 c1, UInt32 c2)
+        public UInt32 GetInterpolatedColor(byte t, UInt32 c1, UInt32 c2)
         {
             byte[] c1Bytes = BitConverter.GetBytes(c1);
             byte[] c2Bytes = BitConverter.GetBytes(c2);
@@ -307,6 +306,39 @@ namespace Seurat
             newColor[3] = (byte)(c1Bytes[3] + ((double)t / 255.0) * (c2Bytes[3] - c1Bytes[3]));
 
             return BitConverter.ToUInt32(newColor, 0);
+        }
+
+        private void setTopColor(UInt32 c)
+        {
+            byte[] cBytes = BitConverter.GetBytes(c);
+            TrackBarC1R.Value = cBytes[0];
+            TrackBarC1G.Value = cBytes[1];
+            TrackBarC1B.Value = cBytes[2];
+            VerticalGradient.c1 = c;
+            VerticalGradient.Invalidate();
+        }
+
+        private void setBottomColor(UInt32 c)
+        {
+            byte[] cBytes = BitConverter.GetBytes(c);
+            TrackBarC2R.Value = cBytes[0];
+            TrackBarC2G.Value = cBytes[1];
+            TrackBarC2B.Value = cBytes[2];
+            VerticalGradient.c2 = c;
+            VerticalGradient.Invalidate();
+        }
+
+        public void setC1(UInt32 c)
+        {
+            setTopColor(c);
+            TrackBarC1.Value = 255;
+            //C1 = c;
+        }
+        public void setC2(UInt32 c)
+        {
+            setBottomColor(c);
+            TrackBarC2.Value = 0;
+            //C2 = c;
         }
     }
 }

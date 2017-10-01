@@ -63,6 +63,15 @@
     <Compile Include="Brushes\BoxBrush.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Brushes\DropperBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\EraserBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\LineBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BrushType.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -76,6 +85,9 @@
     <Compile Include="ControlPanelControlStack.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Brushes\CurveBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DirectBitmap.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -86,17 +98,47 @@
     <Compile Include="Brushes\HandBrush.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Brushes\FreeFormSelectBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LayerTabPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Brushes\PencilBrush.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Brushes\OvalBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\PaintbrushBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\PaintBucketBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PlanePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\PolygonBrush.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Brushes\SelectBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\SmudgeBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\SprayCanBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\StampBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Brushes\TextBrush.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VerticalGradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>

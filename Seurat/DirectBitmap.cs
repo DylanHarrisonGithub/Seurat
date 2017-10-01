@@ -166,6 +166,16 @@ namespace Seurat
         {
             pixelBuffer[x + y * width] = color;
         }
+        public UInt32 pGet(int x, int y)
+        {
+            return pixelBuffer[x + y * width];
+        }
+        public void pSetSafe(int x, int y, UInt32 color)
+        {
+            if ((x >= 0) && (x < width) && (y >=0) && (y < height)) {
+                pSet(x, y, color);
+            }
+        }
 
         public void drawBresenhamLine(int x1, int y1, int x2, int y2, UInt32 color)
         {

@@ -1,6 +1,9 @@
 # Seurat
 A Windows drawing application developed in MSVS C#. Read more about this project on my blog, [https://dylansamcsblog.wordpress.com/](https://dylansamcsblog.wordpress.com/).
 
+![Alt text](/Seurat/Screenshots/Capture0.PNG?raw=true "Optional Title")
+
+
 Features:
 - Supports Multiple Image Formats
   - .bmp
